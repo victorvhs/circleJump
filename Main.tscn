@@ -12,3 +12,5 @@ position = Vector2( 218.306, 686.29 )
 position = Vector2( 258.657, 640.842 )
 offset = Vector2( 0, -200 )
 current = true
+smoothing_enabled = true
+smoothing_speed = 8.0
