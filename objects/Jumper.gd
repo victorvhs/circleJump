@@ -21,7 +21,7 @@ func jump():
 
 func _on_Jumper_area_entered(area):
 	target = area
-	target.get_node("pivot").rotation = (position - target.position).angle()
+	
 	velocity = Vector2.ZERO
 	emit_signal("captured",area)
 	
@@ -33,3 +33,11 @@ func _physics_process(delta):
 		transform = target.orbit_position.global_transform
 	else:
 		position+= velocity * delta
+
+func die():
+	target = null
+	queue_free()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	if !target:
+		die()
