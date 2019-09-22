@@ -87,7 +87,9 @@ font_path = "res://assets/fonts/Xolonium-Regular.ttf"
 size = 64
 font_data = SubResource( 5 )
 
-[node name="Circle" type="Area2D"]
+[node name="Circle" type="Area2D" groups=[
+"circles",
+]]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
