@@ -24,12 +24,15 @@ func  _on_button_pressed(btn):
 	match btn.name:
 		"Home":
 			change_screen($TitleScreen)
+			settings.show_banner()
 		"Play":
 			change_screen(null)
 			yield(get_tree().create_timer(0.5),"timeout")
 			emit_signal("start_game")
+			settings.hide_ad_banner()
 		"Settings":
 			change_screen($SettingsScreen)
+			settings.show_banner()
 		"Sound":
 			settings.enable_sounds = !settings.enable_sounds
 			btn.texture_normal = sound_buttons[settings.enable_sounds]
@@ -38,6 +41,7 @@ func  _on_button_pressed(btn):
 			btn.texture_normal = music_buttons[settings.enable_music]
 		"Color":
 			change_screen($Color)
+			settings.show_banner()
 		"NEON1":
 			settings.op = "NEON1"
 		"NEON2":

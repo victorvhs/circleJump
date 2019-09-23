@@ -13,10 +13,11 @@ func _ready():
 	randomize()
 	load_score()
 	$HUD.hide()
-	settings.get_id_ads()
+	
 	
 	
 func new_game():
+	
 	self.score = 0
 	level = 1
 	$HUD.update_score(score)
@@ -61,6 +62,7 @@ func on_Jumper_died():
 		save_score()
 	get_tree().call_group("circles", "implode")
 	$Screens.game_over(score, highscore)
+	settings.show_banner()
 	$HUD.hide()
 	if settings.enable_music:
 		$Music.stop()

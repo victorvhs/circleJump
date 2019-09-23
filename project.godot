@@ -13,6 +13,10 @@ _global_script_class_icons={
 
 }
 
+[android]
+
+modules="org/godotengine/godot/GodotAdMob"
+
 [application]
 
 config/name="circle_tuto"
@@ -38,5 +42,6 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"
 quality/dynamic_fonts/use_oversampling=false

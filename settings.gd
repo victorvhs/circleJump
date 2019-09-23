@@ -55,11 +55,29 @@ static func rand_weighted(weights):
 		num -= weights[i]
 		
 
-
+var admob = null
+var real_ads = false
+var banner_top = false
+var ad_banner_id = get_id_ads()
 
 func get_id_ads():
 	var f = File.new()
 	if f.file_exists(ads_file):
 		f.open(ads_file,File.READ)
-		print(str(f.get_as_text()))
+		return (str(f.get_as_text()))
 		f.close()
+
+
+func _ready():
+	if Engine.has_singleton("AdMob"):
+        admob = Engine.get_singleton("AdMob")
+        admob.init(real_ads, get_instance_id())
+        admob.loadBanner(ad_banner_id, banner_top)
+		
+func show_banner():
+    if admob:
+        admob.showBanner()
+
+func hide_ad_banner():
+    if admob:
+        admob.hideBanner()
