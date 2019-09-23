@@ -5,7 +5,7 @@ onready var move_tween = $MoveTween
 
 enum MODES {STATIC,LIMITED}
 
-var radius = 100
+var radius = 120
 var rotation_speed = PI
 var mode = MODES.STATIC
 var move_range = 0
@@ -29,10 +29,10 @@ func init(_position, level=1):
 	$Sprite.material = $Sprite.material.duplicate()
 	$SpriteEffect.material = $Sprite.material
 	$CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
-	$CollisionShape2D.shape.radius = radius
+	$CollisionShape2D.shape.radius = radius -25
 	var img_size = $Sprite.texture.get_size().x / 2
 	$Sprite.scale = Vector2(1, 1) * radius / img_size
-	orbit_position.position.x = radius + 25
+	orbit_position.position.x = radius
 	rotation_speed *= pow(-1, randi() % 2)
 	set_tween()
 	
@@ -49,6 +49,7 @@ func set_mode(_mode):
 			$Label.show()
 			color = settings.theme["circle_limited"]
 	$Sprite.material.set_shader_param("color",color)
+	
 func _process(delta):
 	$pivot.rotation += rotation_speed * delta
 	if mode == MODES.LIMITED and jumper:
@@ -59,8 +60,7 @@ func check_orbits():
 	if abs($pivot.rotation - orbit_start) > 2 * PI:
 		current_orbits -= 1
 		if settings.enable_sounds:
-			$Beep.play()
-			
+			$Beep.play()	
 		$Label.text = str(current_orbits)
 		if current_orbits <= 0 :
 			jumper.die()
