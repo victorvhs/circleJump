@@ -35,7 +35,15 @@ func  _on_button_pressed(btn):
 			btn.texture_normal = sound_buttons[settings.enable_sounds]
 		"Music":
 			settings.enable_music = !settings.enable_music
-			btn.texture_normal = music_buttons[settings.enable_music]	
+			btn.texture_normal = music_buttons[settings.enable_music]
+		"Color":
+			change_screen($Color)
+		"NEON1":
+			settings.op = "NEON1"
+		"NEON2":
+			settings.op = "NEON2"
+		"NEON3":
+			settings.op = "NEON3"
 			
 			
 			

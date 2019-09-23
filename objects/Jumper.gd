@@ -12,6 +12,7 @@ var trail_length = 25
 func _ready():
 	$Sprite.material.set_shader_param("color",settings.theme["player_body"])
 	$Trail/Points.default_color = settings.theme["player_trail"]
+	$Trail/Points.gradient.set_color(1, settings.theme["player_trail"])
 
 func _unhandled_input(event):
 	if target and event is InputEventScreenTouch and event.pressed:

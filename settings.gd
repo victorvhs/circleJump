@@ -29,7 +29,15 @@ var color_schemes = {
         'circle_fill': Color8(255, 148, 0),
         'circle_static': Color8(170, 255, 0),
         'circle_limited': Color8(204, 0, 255)
+    },
+	"User":{
+        'background': Color8(0, 0, 0),
+        'player_body': Color8(255, 0, 187),
+        'player_trail': Color8(255, 148, 0),
+        'circle_fill': Color8(255, 148, 0),
+        'circle_static': Color8(170, 255, 0),
+        'circle_limited': Color8(204, 0, 255)
     }
 }
-
-var theme = color_schemes["NEON2"]
+var op = "NEON2"
+var theme = color_schemes[op]
