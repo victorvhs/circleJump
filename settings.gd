@@ -1,6 +1,7 @@
 extends Node
 
 var score_file = "user://highscore.save"
+var ads_file = "res://id.txt"
 var enable_sounds = true
 var enable_music = true
 
@@ -56,4 +57,9 @@ static func rand_weighted(weights):
 
 
 
-
+func get_id_ads():
+	var f = File.new()
+	if f.file_exists(ads_file):
+		f.open(ads_file,File.READ)
+		print(str(f.get_as_text()))
+		f.close()

@@ -13,6 +13,7 @@ func _ready():
 	randomize()
 	load_score()
 	$HUD.hide()
+	settings.get_id_ads()
 	
 	
 func new_game():
