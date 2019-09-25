@@ -2,6 +2,7 @@ extends Node
 
 var score_file = "user://highscore.save"
 var ads_file = "res://id.txt"
+var settings_file = "user://settings.save"
 var enable_sounds = true
 var enable_music = true
 
@@ -69,6 +70,7 @@ func get_id_ads():
 
 
 func _ready():
+	load_settings()
 	if Engine.has_singleton("AdMob"):
         admob = Engine.get_singleton("AdMob")
         admob.init(real_ads, get_instance_id())
@@ -81,3 +83,27 @@ func show_banner():
 func hide_ad_banner():
     if admob:
         admob.hideBanner()
+		
+func save_settings():
+	var f = File.new()
+	f.open(settings_file, File.WRITE)
+	f.store_var(enable_music)
+	f.store_var(enable_sounds)
+	f.close()
+
+func load_settings():
+	var f = File.new()
+	if f.file_exists(settings_file):
+		f.open(settings_file,File.READ)
+		enable_music = f.get_var()
+		enable_sounds = f.get_var()
+		f.close()
+	
+	
+	
+	
+	
+	
+	
+	
+	
