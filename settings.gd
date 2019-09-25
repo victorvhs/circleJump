@@ -72,17 +72,17 @@ func get_id_ads():
 func _ready():
 	load_settings()
 	if Engine.has_singleton("AdMob"):
-        admob = Engine.get_singleton("AdMob")
-        admob.init(real_ads, get_instance_id())
-        admob.loadBanner(ad_banner_id, banner_top)
+		admob = Engine.get_singleton("AdMob")
+		admob.init(real_ads, get_instance_id())
+		admob.loadBanner(ad_banner_id, banner_top)
 		
 func show_banner():
-    if admob:
-        admob.showBanner()
+	if admob:
+		admob.showBanner()
 
 func hide_ad_banner():
-    if admob:
-        admob.hideBanner()
+	if admob:
+		admob.hideBanner()
 		
 func save_settings():
 	var f = File.new()
