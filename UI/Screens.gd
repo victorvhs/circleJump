@@ -29,6 +29,7 @@ func  _on_button_pressed(btn):
 	match btn.name:
 		"About":
 			change_screen($AboutScreen)
+			print("About")
 		"Home":
 			change_screen($TitleScreen)
 			settings.show_banner()
