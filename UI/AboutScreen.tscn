@@ -39,10 +39,13 @@ custom_fonts/bold_italics_font = SubResource( 1 )
 custom_fonts/italics_font = SubResource( 1 )
 custom_fonts/bold_font = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 3 )
-text = "Um pequeno jogo 
-Feito como estudo.
-Foi utilizado como base o Tutorial do KidsCanCode 
-Link: http://kidscancode.org/godot_recipes/games/circle_jump/"
+bbcode_enabled = true
+bbcode_text = "[center] [u]Circle Jump[/u][/center]
+Jogo feito como fonte de estudo seguindo a base do tutorial: 
+[url=http://kidscancode.org/godot_recipes/games/circle_jump/]KidsCanCode [/url]"
+text = " Circle Jump
+Jogo feito como fonte de estudo seguindo a base do tutorial: 
+KidsCanCode "
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer2" index="1"]
 margin_top = 459.0
@@ -58,3 +61,4 @@ margin_left = 170.0
 margin_right = 270.0
 margin_bottom = 100.0
 texture_normal = ExtResource( 3 )
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer2/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
